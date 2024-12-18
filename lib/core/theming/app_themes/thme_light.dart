@@ -18,9 +18,9 @@ ThemeData themeLight = ThemeData(
   appBarTheme: AppBarTheme(
     backgroundColor: AppColors.white,
     elevation: 0.0,
-    titleTextStyle: GoogleFonts.poppins(
+    titleTextStyle: GoogleFonts.philosopher(
       color: AppColors.brown,
-      fontSize: 18,
+      fontSize: 30,
       fontWeight: FontWeight.w500,
     ),
     actionsIconTheme: const IconThemeData(color: AppColors.brown, size: 26),
