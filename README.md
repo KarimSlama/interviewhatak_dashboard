@@ -44,5 +44,3 @@ By centralizing and simplifying the hiring workflow, the Interviewhatak Dashboar
 ![interviewhatak section](https://github.com/user-attachments/assets/1ae15b83-cd68-4fa6-82bc-1dbdb92746f7)
 
 🎯 Interviewhatak System Design 
-
-![image](https://github.com/user-attachments/assets/11cf551e-9fb3-4a67-a0f4-3094f4d75fc4)
