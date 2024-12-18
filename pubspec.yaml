@@ -48,11 +48,26 @@ dependencies:
   curved_navigation_bar: ^1.0.6
   # Flutter library to load and cache network images. Can also be used with placeholder and error widgets.
   cached_network_image: ^3.4.1
+  # Customisable tab view/carousel with animated indicator. Just pass in children and tabs, or use a TabController, change the tab side, add color(s), and more.
+  tab_container: ^3.5.3
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_launcher_icons:
+  image_path_android: "assets/images/logo.png"
+  image_path_ios: "assets/images/logo.png"
+  android: true # can specify file name here e.g. "ic_launcher"
+  ios: true # can specify file name here e.g. "My-Launcher-Icon"
+  adaptive_icon_background: "assets/images/background.png"
+  adaptive_icon_foreground: "assets/images/logo.png"
+  web:
+    generate: true
+    image_path: "assets/images/logo.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
 
   flutter_lints: ^4.0.0
 

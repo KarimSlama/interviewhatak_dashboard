@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter/material.dart';
 
 SizedBox verticalSpace(double height) => SizedBox(
-      height: height.h,
+      height: height,
     );
 
 SizedBox horizontalSpace(double width) => SizedBox(
-      width: width.w,
+      width: width,
     );
