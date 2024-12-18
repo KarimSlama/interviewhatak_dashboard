@@ -7,4 +7,6 @@ class AppString {
   static const String sections = 'Sections';
   static const String questions = 'Questions';
   static const String viewAll = 'View All';
+  static const String yourCategoriesOverview = 'Your Categories Overview';
+  static const String addCategory = 'Add Category';
 }
