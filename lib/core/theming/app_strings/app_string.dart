@@ -18,4 +18,8 @@ class AppString {
   static const String imageUrl = 'Add Image URL';
   static const String cancel = 'Cancel';
   static const String save = 'Save';
+  static const String enterValidCategoryName = 'Enter Valid Category Name';
+  static const String enterValidCategoryDesc = 'Enter Valid Category Desc';
+  static const String enterValidCategoryImageUrl =
+      'Enter Valid Category Image Url';
 }
