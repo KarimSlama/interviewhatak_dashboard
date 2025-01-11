@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interviewhatak_dashboard/core/theming/app_colors/app_colors.dart';
 import 'package:interviewhatak_dashboard/core/theming/app_strings/app_string.dart';
-import 'package:interviewhatak_dashboard/interviewhatak-dashboard/home/widget/add_category_button.dart';
 import 'package:interviewhatak_dashboard/interviewhatak-dashboard/home/widget/view_all_button.dart';
 
 class CategoriesOverviewHeaderWidget extends StatelessWidget {
@@ -22,7 +21,6 @@ class CategoriesOverviewHeaderWidget extends StatelessWidget {
                   fontWeight: FontWeight.w500),
             ),
             Spacer(),
-            AddCategoryButton(),
             ViewAllButton(),
           ],
         )

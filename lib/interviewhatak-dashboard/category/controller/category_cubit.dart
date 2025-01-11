@@ -12,7 +12,8 @@ class CategoryCubit extends Cubit<CategoryState> {
   TextEditingController categoryNameController = TextEditingController();
   TextEditingController categoryDescController = TextEditingController();
   TextEditingController categoryImageController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
+
+  List<String> categoriesList = [];
 
   Future<void> createNewCategory() async {
     emit(CategoryState.loading());
@@ -24,8 +25,24 @@ class CategoryCubit extends Cubit<CategoryState> {
       ),
     );
     result.when(
-      success: (data) => emit(CategoryState.success()),
+      success: (data) => emit(CategoryState.success(null)),
       failure: (error) => emit(CategoryState.error(error: error)),
+    );
+  }
+
+  Future<void> getCategoriesName() async {
+    emit(CategoryState.loading());
+    final result = await categoryRepository.fetchingCategories();
+    result.when(
+      success: (categories) {
+        emit(CategoryState.loading());
+        categoriesList = [];
+        categoriesList = categories;
+        emit(CategoryState.success(categories));
+      },
+      failure: (error) {
+        emit(CategoryState.error(error: error));
+      },
     );
   }
 }

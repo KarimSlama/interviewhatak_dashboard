@@ -12,7 +12,9 @@ class AppString {
   static const String dismiss = 'Dismiss';
   static const String addingaNewCategory = 'Adding a new Category';
   static const String categoryName = 'Category Name';
+  static const String fieldName = 'Field Name';
   static const String description = 'description';
+  static const String fieldDescription = 'Field Description';
   static const String date = 'Date';
   static const String image = 'Image';
   static const String imageUrl = 'Add Image URL';
@@ -20,6 +22,10 @@ class AppString {
   static const String save = 'Save';
   static const String enterValidCategoryName = 'Enter Valid Category Name';
   static const String enterValidCategoryDesc = 'Enter Valid Category Desc';
+  static const String enterValidFieldDesc = 'Enter Valid Category Desc';
+  static const String enterValidFieldName = 'Enter Valid Category Name';
   static const String enterValidCategoryImageUrl =
       'Enter Valid Category Image Url';
+  static const String addingaNewField = 'Adding a new Field';
+
 }

@@ -8,7 +8,7 @@ class CategoryState<T> with _$CategoryState<T> {
 
   const factory CategoryState.loading() = Loading;
 
-  const factory CategoryState.success() = Success;
+  const factory CategoryState.success(T? data) = Success;
 
   const factory CategoryState.error({required String error}) = Error;
 }

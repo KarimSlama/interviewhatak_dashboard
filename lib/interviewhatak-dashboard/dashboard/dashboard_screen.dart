@@ -18,53 +18,50 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final searchController = TextEditingController();
-    return BlocProvider(
-      create: (context) => getIt<CategoryCubit>(),
-      child: Scaffold(
-        appBar: AppBar(
-          title: Row(
-            children: [
-              Text(AppString.interviewhatak),
-              Spacer(),
-              SizedBox(
-                width: 400,
-                child: TextInputFieldsWidget(
-                  controller: searchController,
-                  textInputType: TextInputType.name,
-                  hintName: AppString.searchForAnything,
-                  prefixIcon: IconBroken.Search,
-                  validate: (value) {
-                    return value;
-                  },
-                ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Row(
+          children: [
+            Text(AppString.interviewhatak),
+            Spacer(),
+            SizedBox(
+              width: 400,
+              child: TextInputFieldsWidget(
+                controller: searchController,
+                textInputType: TextInputType.name,
+                hintName: AppString.searchForAnything,
+                prefixIcon: IconBroken.Search,
+                validate: (value) {
+                  return value;
+                },
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-        body: AspectRatio(
-          aspectRatio: 10 / 4.6,
-          child: TabContainer(
-            colors: colors,
-            tabs: tabs,
-            borderRadius: BorderRadius.circular(20),
-            tabEdge: TabEdge.left,
-            curve: Curves.easeInOut,
-            transitionBuilder: (child, animation) {
-              animation =
-                  CurvedAnimation(curve: Curves.easeIn, parent: animation);
-              return SlideTransition(
-                position: Tween(
-                  begin: const Offset(0.2, 0.0),
-                  end: const Offset(0.0, 0.0),
-                ).animate(animation),
-                child: FadeTransition(
-                  opacity: animation,
-                  child: child,
-                ),
-              );
-            },
-            children: screens,
-          ),
+      ),
+      body: AspectRatio(
+        aspectRatio: 10 / 4.6,
+        child: TabContainer(
+          colors: colors,
+          tabs: tabs,
+          borderRadius: BorderRadius.circular(20),
+          tabEdge: TabEdge.left,
+          curve: Curves.easeInOut,
+          transitionBuilder: (child, animation) {
+            animation =
+                CurvedAnimation(curve: Curves.easeIn, parent: animation);
+            return SlideTransition(
+              position: Tween(
+                begin: const Offset(0.2, 0.0),
+                end: const Offset(0.0, 0.0),
+              ).animate(animation),
+              child: FadeTransition(
+                opacity: animation,
+                child: child,
+              ),
+            );
+          },
+          children: screens,
         ),
       ),
     );
@@ -88,7 +85,10 @@ class DashboardScreen extends StatelessWidget {
 
   final List<Widget> screens = [
     HomeScreen(),
-    CategoryScreen(),
+    BlocProvider(
+      create: (context) => getIt<CategoryCubit>()..getCategoriesName(),
+      child: CategoryScreen(),
+    ),
     SectionScreen(),
     QuestionScreen(),
     SettingScreen(),
