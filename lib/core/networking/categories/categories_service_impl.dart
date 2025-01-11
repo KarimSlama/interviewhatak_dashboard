@@ -23,17 +23,33 @@ class CategoriesServiceImpl implements CategoriesService {
   }
 
   @override
-  Future<ServerResult<List<CategoriesModel>>> getCategories() async {
+  Future<ServerResult<List<String>>> getCategories() async {
     try {
-      final response = await firebaseFirestore.collection('categories').get();
+      final response =
+          await FirebaseFirestore.instance.collection('categories').get();
+
       final categories = response.docs.map((doc) {
-        return CategoriesModel.fromJson(doc.data());
+        final data = doc.data();
+        return data['category_name'] as String;
       }).toList();
+
       return ServerResult.success(categories);
     } catch (error) {
-      print(
-          'The Error in Categories Service Impl with get Categories is $error');
-      return ServerResult.failure('The Error is ${error}');
+      return ServerResult.failure('Failed to fetch categories: $error');
     }
   }
+
+// @override
+// Future<ServerResult<List<String>>> getCategories() async {
+//   try {
+//     final response =
+//         await FirebaseFirestore.instance.collection('categories').get();
+//     final categories = response.docs.map((doc) {
+//       return CategoriesModel.fromJson(doc.data());
+//     }).toList();
+//     return ServerResult.success(response);
+//   } catch (error) {
+//     return ServerResult.failure('Failed to fetch categories$error');
+//   }
+// }
 }

@@ -12,7 +12,7 @@ class CategoryRepository {
     return await categoriesService.createCategory(categoriesModel);
   }
 
-  Future<ServerResult<List<CategoriesModel>>> fetchingCategories() async {
+  Future<ServerResult<List<String>>> fetchingCategories() async {
     return await categoriesService.getCategories();
   }
 }
