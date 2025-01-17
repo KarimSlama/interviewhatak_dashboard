@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interviewhatak_dashboard/core/helpers/extensions.dart';
+import 'package:interviewhatak_dashboard/core/routing/routes.dart';
 import 'package:interviewhatak_dashboard/core/theming/app_colors/app_colors.dart';
 import 'package:interviewhatak_dashboard/core/theming/app_strings/app_string.dart';
 import 'package:interviewhatak_dashboard/core/widgets/build_text_field.dart';
 import 'package:interviewhatak_dashboard/interviewhatak-dashboard/fields/controller/field_cubit.dart';
+import 'package:interviewhatak_dashboard/interviewhatak-dashboard/fields/data/model/argument_model.dart';
 import 'package:interviewhatak_dashboard/interviewhatak-dashboard/fields/widget/fields_bloc_listener.dart';
 
 class FieldScreen extends StatelessWidget {
-  final List<String> categoriesList;
+  final List<String> categoryList;
 
-  const FieldScreen({super.key, required this.categoriesList});
+  const FieldScreen({super.key, required this.categoryList});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +42,7 @@ class FieldScreen extends StatelessWidget {
                 children: [
                   DropdownButton(
                     value: cubit.selectedCategory,
-                    items: categoriesList.map((String category) {
+                    items: categoryList.map((String category) {
                       return DropdownMenuItem(
                         value: category,
                         child: Text(category),
@@ -125,6 +128,15 @@ class FieldScreen extends StatelessWidget {
                       ?.copyWith(color: AppColors.white),
                 ),
               ),
+              TextButton(
+                  onPressed: () {
+                    context.pushNamed(
+                      Routes.sectionScreen,
+                      arguments: SectionScreenArguments(
+                          categoryList: categoryList, fieldList: cubit.fields),
+                    );
+                  },
+                  child: Text('Click and add new Section')),
               FieldBlocListener(),
             ],
           ),

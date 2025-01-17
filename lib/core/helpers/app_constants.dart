@@ -1,5 +1,5 @@
-bool isLoggedUser = false;
-
-class SharedPreferenceKey {
-  static const String userUidKey = 'userKey';
+class Constants {
+  static String? categoryName;
+  static String? fieldName;
+  static String? sectionName;
 }

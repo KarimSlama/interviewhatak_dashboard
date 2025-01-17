@@ -10,4 +10,8 @@ class FieldRepository {
   Future<ServerResult<void>> createNewField(FieldsModel fieldModel) async {
     return await fieldsService.createField(fieldModel);
   }
+
+  Future<ServerResult<List<String>>> getFields(categoryName) async {
+    return await fieldsService.getFields(categoryName);
+  }
 }

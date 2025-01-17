@@ -27,5 +27,9 @@ class AppString {
   static const String enterValidCategoryImageUrl =
       'Enter Valid Category Image Url';
   static const String addingaNewField = 'Adding a new Field';
-
+  static const String addingNewSection = 'Adding a new Section';
+  static const String sectionName = 'Section Name';
+  static const String sectionDesc = 'Section Desc';
+  static const String enterValidSectionName = 'Enter Valid Section Name';
+  static const String enterValidSectionDesc = 'Enter Valid Section Desc';
 }
