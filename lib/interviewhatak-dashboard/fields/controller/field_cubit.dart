@@ -28,6 +28,8 @@ class FieldCubit extends Cubit<FieldState> {
   var selectedColorName;
   var selectedColorHex;
 
+  List<String> fields = [];
+
   Future<void> createNewField(selectedCategory, selectedColor) async {
     final result = await fieldRepository.createNewField(
       FieldsModel(
@@ -66,5 +68,19 @@ class FieldCubit extends Cubit<FieldState> {
       emit(FieldState.changed(selectedColorHex));
     } else
       emit(FieldState.error(error: 'Does\'nt exist Color'));
+  }
+
+  Future<void> getFields(String categoryName) async {
+    emit(FieldState.loading());
+    final result = await fieldRepository.getFields(categoryName);
+    result.when(
+      success: (data) {
+        fields = [];
+        print('the data comes from fields firestore is ${data.length}');
+        fields = data;
+        emit(FieldState.success());
+      },
+      failure: (error) => emit(FieldState.error(error: error)),
+    );
   }
 }

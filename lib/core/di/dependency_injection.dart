@@ -3,10 +3,14 @@ import 'package:interviewhatak_dashboard/core/networking/categories/categories_s
 import 'package:interviewhatak_dashboard/core/networking/categories/categories_service_impl.dart';
 import 'package:interviewhatak_dashboard/core/networking/fields/fields_service.dart';
 import 'package:interviewhatak_dashboard/core/networking/fields/fields_service_impl.dart';
+import 'package:interviewhatak_dashboard/core/networking/sections/section_service.dart';
+import 'package:interviewhatak_dashboard/core/networking/sections/section_service_impl.dart';
 import 'package:interviewhatak_dashboard/interviewhatak-dashboard/category/controller/category_cubit.dart';
 import 'package:interviewhatak_dashboard/interviewhatak-dashboard/category/data/repository/category_repository.dart';
 import 'package:interviewhatak_dashboard/interviewhatak-dashboard/fields/controller/field_cubit.dart';
 import 'package:interviewhatak_dashboard/interviewhatak-dashboard/fields/data/repository/field_repository.dart';
+import 'package:interviewhatak_dashboard/interviewhatak-dashboard/section/controller/section_cubit.dart';
+import 'package:interviewhatak_dashboard/interviewhatak-dashboard/section/data/repository/section_repository.dart';
 
 final getIt = GetIt.instance;
 
@@ -22,4 +26,11 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<FieldRepository>(() => FieldRepository(getIt()));
 
   getIt.registerFactory<FieldCubit>(() => FieldCubit(getIt()));
+
+  getIt.registerLazySingleton<SectionService>(() => SectionServiceImpl());
+
+  getIt.registerLazySingleton<SectionRepository>(
+      () => SectionRepository(getIt()));
+
+  getIt.registerFactory<SectionCubit>(() => SectionCubit(getIt()));
 }

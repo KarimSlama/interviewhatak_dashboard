@@ -8,7 +8,6 @@ import 'package:interviewhatak_dashboard/interviewhatak-dashboard/category/categ
 import 'package:interviewhatak_dashboard/interviewhatak-dashboard/category/controller/category_cubit.dart';
 import 'package:interviewhatak_dashboard/interviewhatak-dashboard/home/home_screen.dart';
 import 'package:interviewhatak_dashboard/interviewhatak-dashboard/question/question_screen.dart';
-import 'package:interviewhatak_dashboard/interviewhatak-dashboard/section/section_screen.dart';
 import 'package:interviewhatak_dashboard/interviewhatak-dashboard/setting/setting_screen.dart';
 import 'package:tab_container/tab_container.dart';
 
@@ -70,7 +69,6 @@ class DashboardScreen extends StatelessWidget {
   final List<Color> colors = [
     Color(0xffa275e3),
     Color(0xfffa86be),
-    Color(0xff9aebed),
     Color(0xffa275e3),
     Color(0xff9aebed),
   ];
@@ -78,7 +76,6 @@ class DashboardScreen extends StatelessWidget {
   final List<Icon> tabs = [
     Icon(IconBroken.Home),
     Icon(IconBroken.Activity),
-    Icon(IconBroken.Shield_Done),
     Icon(IconBroken.Bag_2),
     Icon(IconBroken.Setting),
   ];
@@ -89,7 +86,6 @@ class DashboardScreen extends StatelessWidget {
       create: (context) => getIt<CategoryCubit>()..getCategoriesName(),
       child: CategoryScreen(),
     ),
-    SectionScreen(),
     QuestionScreen(),
     SettingScreen(),
   ];
